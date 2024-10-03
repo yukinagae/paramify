@@ -8,7 +8,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/yukinagae/paramify)](https://goreportcard.com/report/github.com/yukinagae/paramify)
 [![GitHub License](https://img.shields.io/github/license/yukinagae/paramify)](https://github.com/yukinagae/paramify/blob/main/LICENSE)
 
-`paramify` is a powerful tool designed to generate functions using the [Functional Options Pattern](https://github.com/uber-go/guide/blob/master/style.md#functional-options). This pattern allows you to build structs with intuitive, flexible, and type-safe APIs.
+`paramify` is a build-function generator tool based on the [Functional Options Pattern](https://github.com/uber-go/guide/blob/master/style.md#functional-options), allowing you to build structs with intuitive, flexible, and type-safe APIs.
 
 ## Installation
 
