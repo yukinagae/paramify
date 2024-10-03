@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-go get github.com/yukinagae/paramify@latest
+go install github.com/yukinagae/paramify@latest
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ go get github.com/yukinagae/paramify@latest
 Create a struct with the fields you need. Use struct tags to mark optional fields with `omitempty`.
 
 ```go
-//go:generate go run paramify -type=User
+//go:generate paramify -type=User
 type User struct {
 	ID      string   `json:"id"`
 	Name    string   `json:"name"`
@@ -61,7 +61,7 @@ package main
 
 import "fmt"
 
-//go:generate go run paramify -type=User
+//go:generate paramify -type=User
 type User struct {
 	ID      string   `json:"id"`
 	Name    string   `json:"name"`
