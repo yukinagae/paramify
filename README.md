@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/yukinagae/paramify/blob/main/docs/resources/GO_BUILD.png" title="Gopher Build" alt="Gopher Build" style="width: 400px;">
+  <img src="https://raw.githubusercontent.com/yukinagae/paramify/refs/heads/main/docs/resources/GO_BUILD.png" title="Gopher Build" alt="Gopher Build" style="width: 400px;">
 </div>
 
 # paramify
