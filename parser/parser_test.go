@@ -284,6 +284,7 @@ func TestIsInterface(t *testing.T) {
 		{
 			name: "should return false if input is a struct type",
 			input: &ast.Ident{
+				//nolint:staticcheck
 				Obj: &ast.Object{
 					Decl: &ast.TypeSpec{
 						Type: &ast.StructType{},
@@ -295,6 +296,7 @@ func TestIsInterface(t *testing.T) {
 		{
 			name: "should return true if input is an interface type",
 			input: &ast.Ident{
+				//nolint:staticcheck
 				Obj: &ast.Object{
 					Decl: &ast.TypeSpec{
 						Type: &ast.InterfaceType{},
