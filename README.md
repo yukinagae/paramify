@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-go get github.com/yukinagae/paramify@latest
+go install github.com/yukinagae/paramify@latest
 ```
 
 ## Usage
