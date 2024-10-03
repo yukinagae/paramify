@@ -19,6 +19,7 @@ tidy:
 	go mod tidy -v
 	go fmt ./...
 	gofmt -s -w .
+	golangci-lint run
 
 ## publish: Publish the Go modules to the registry
 .PHONY: publish
