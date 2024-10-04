@@ -8,16 +8,12 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/yukinagae/paramify)](https://goreportcard.com/report/github.com/yukinagae/paramify)
 [![GitHub License](https://img.shields.io/github/license/yukinagae/paramify)](https://github.com/yukinagae/paramify/blob/main/LICENSE)
 
-<div>
-   <img alt="Github version" src="https://img.shields.io/github/v/release/yukinagae/paramify">
-   <img alt="Static Badge" src="https://img.shields.io/badge/yes-a?label=maintained">
-</div>
+[![Github version](https://img.shields.io/github/v/release/yukinagae/paramify)](https://github.com/yukinagae/paramify/releases)
+[![Static Badge](https://img.shields.io/badge/yes-a?label=maintained)](https://github.com/yukinagae/paramify/pulse)
 
-<div>
-   <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/yukinagae/paramify?color=blue">
-   <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/yukinagae/paramify?color=blue">
-   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/yukinagae/paramify">
-</div>
+[![GitHub Issues](https://img.shields.io/github/issues/yukinagae/paramify?color=blue)](https://github.com/yukinagae/paramify/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/yukinagae/paramify?color=blue)](https://github.com/yukinagae/paramify/pulls)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yukinagae/paramify)](https://github.com/yukinagae/paramify/activity)
 
 `paramify` is a build-function generator tool based on the [Functional Options Pattern](https://github.com/uber-go/guide/blob/master/style.md#functional-options), allowing you to build structs with intuitive, flexible, and type-safe APIs.
 
