@@ -4,14 +4,12 @@
 
 # paramify
 
-<div>
-   <img alt="Go Reference" src="https://pkg.go.dev/badge/github.com/yukinagae/paramify.svg">
-   <img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/yukinagae/paramify">
-</div>
+[![Go Reference](https://pkg.go.dev/badge/github.com/yukinagae/paramify.svg)](https://pkg.go.dev/github.com/yukinagae/paramify)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yukinagae/paramify)](https://goreportcard.com/report/github.com/yukinagae/paramify)
+[![GitHub License](https://img.shields.io/github/license/yukinagae/paramify)](https://github.com/yukinagae/paramify/blob/main/LICENSE)
 
 <div>
    <img alt="Github version" src="https://img.shields.io/github/v/release/yukinagae/paramify">
-   <img alt="GitHub License" src="https://img.shields.io/github/license/yukinagae/paramify">
    <img alt="Static Badge" src="https://img.shields.io/badge/yes-a?label=maintained">
 </div>
 
