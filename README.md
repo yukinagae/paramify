@@ -7,10 +7,8 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/yukinagae/paramify.svg)](https://pkg.go.dev/github.com/yukinagae/paramify)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yukinagae/paramify)](https://goreportcard.com/report/github.com/yukinagae/paramify)
 [![GitHub License](https://img.shields.io/github/license/yukinagae/paramify)](https://github.com/yukinagae/paramify/blob/main/LICENSE)
-
 [![Github version](https://img.shields.io/github/v/release/yukinagae/paramify)](https://github.com/yukinagae/paramify/releases)
 [![Static Badge](https://img.shields.io/badge/yes-a?label=maintained)](https://github.com/yukinagae/paramify/pulse)
-
 [![GitHub Issues](https://img.shields.io/github/issues/yukinagae/paramify?color=blue)](https://github.com/yukinagae/paramify/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/yukinagae/paramify?color=blue)](https://github.com/yukinagae/paramify/pulls)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yukinagae/paramify)](https://github.com/yukinagae/paramify/activity)
