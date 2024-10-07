@@ -13,7 +13,7 @@ import (
 	_ "embed"
 
 	"github.com/iancoleman/strcase"
-	"github.com/yukinagae/paramify/parser"
+	"github.com/yukinagae/paramify/internal/paramify"
 )
 
 var (
@@ -41,13 +41,13 @@ func main() {
 			dir, err)
 	}
 
-	pkg, err := parser.ParsePackage(dir)
+	pkg, err := paramify.ParsePackage(dir)
 	if err != nil {
 		log.Fatalf("parsing package in %s: %v", dir, err)
 	}
 
 	for _, typeName := range types {
-		fields, err := parser.ValuesOfType(pkg, typeName)
+		fields, err := paramify.ValuesOfType(pkg, typeName)
 		if err != nil {
 			log.Fatalf("finding values for type %v: %v", typeName, err)
 		}
@@ -55,11 +55,11 @@ func main() {
 		var analysis = struct {
 			Command        string
 			PackageName    string
-			TypesAndValues map[string]*parser.Fields
+			TypesAndValues map[string]*paramify.Fields
 		}{
 			Command:     strings.Join(os.Args[1:], " "),
 			PackageName: pkg.Name,
-			TypesAndValues: map[string]*parser.Fields{
+			TypesAndValues: map[string]*paramify.Fields{
 				typeName: fields,
 			},
 		}
