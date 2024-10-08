@@ -18,7 +18,7 @@
 ## Installation
 
 ```bash
-go install github.com/yukinagae/paramify@latest
+go install github.com/yukinagae/paramify/cmd/paramify@latest
 ```
 
 ## Usage
