@@ -42,15 +42,48 @@ func ParsePackage(directory string) (*packages.Package, error) {
 		return nil, fmt.Errorf("no packages found in directory: %s", directory)
 	}
 
+	pkg := pkgs[0]
+	if pkg == nil {
+		// This case should ideally not be reached if len(pkgs) > 0,
+		// but as a safeguard:
+		return nil, fmt.Errorf("first package loaded was nil in directory: %s", directory)
+	}
+
+	// Check for errors during package loading (e.g., syntax errors)
+	if len(pkg.Errors) > 0 {
+		var errorMessages []string
+		for _, err := range pkg.Errors {
+			errorMessages = append(errorMessages, err.Error())
+		}
+		return nil, fmt.Errorf("errors while parsing package in %s: %s", directory, strings.Join(errorMessages, "; "))
+	}
+
+	// Check if there are any Go files processed.
+	// If Syntax is empty, it might mean no Go files were found or they were all ignored.
+	if len(pkg.Syntax) == 0 && len(pkg.GoFiles) == 0 {
+		// Attempt to provide a more specific error if no Go files were found.
+		// packages.Load might not error out itself but return a package with no Go files.
+		return nil, fmt.Errorf("no Go files found in directory: %s", directory)
+	}
+
+
 	// Return the first package found
-	return pkgs[0], nil
+	return pkg, nil
 }
 
 // ValuesOfType returns the required and optional fields of the specified type in the given package.
 func ValuesOfType(pkg *packages.Package, typeName string) (*Fields, error) {
+	if pkg == nil {
+		return nil, fmt.Errorf("package is nil")
+	}
+	if len(pkg.Syntax) == 0 { // Added check for empty syntax
+		return nil, fmt.Errorf("package %s has no syntax information", pkg.Name)
+	}
+
 	var (
 		requiredFields []Field
 		optionalFields []Field
+		typeFound      bool // Flag to track if the type name was encountered
 	)
 	for _, file := range pkg.Syntax {
 		ast.Inspect(file, func(node ast.Node) bool {
@@ -74,14 +107,22 @@ func ValuesOfType(pkg *packages.Package, typeName string) (*Fields, error) {
 					requiredFields = append(requiredFields, value)
 				}
 			}
-
-			return false // Stop inspecting further nodes in this file
+			typeFound = true // Type name was found
+			return false     // Stop inspecting further nodes in this file
 		})
+		if typeFound { // If type was found in this file, no need to check other files
+			break
+		}
 	}
 
-	if len(requiredFields) == 0 && len(optionalFields) == 0 {
-		return nil, fmt.Errorf("no values defined for type: %s", typeName)
+	if !typeFound { // Check if the type was ever found
+		return nil, fmt.Errorf("type %s not found in package %s", typeName, pkg.Name)
 	}
+
+	// If type was found but it has no fields (e.g. type MyType struct{}), it's valid.
+	// The original check `if len(requiredFields) == 0 && len(optionalFields) == 0`
+	// would incorrectly error in this case if the type *was* found.
+	// It's okay for a struct to have no fields we're interested in.
 
 	return &Fields{
 		Required: requiredFields,
@@ -130,6 +171,8 @@ func isInterface(expr ast.Expr) bool {
 				return ok
 			}
 		}
+	case *ast.InterfaceType: // Added case for *ast.InterfaceType
+		return true
 	}
 	return false
 }
